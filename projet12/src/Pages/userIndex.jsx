@@ -1,5 +1,5 @@
 import React from "react";
-import Dashboard from "../Pages/Dashboard/Dashboard";
+import Dashboard from "../Composants/Dashboard";
 
 function Userindex() {
   return (

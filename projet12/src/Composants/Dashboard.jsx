@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   getUser,
-} from "../../CallDatas/CallDatas";
-import User from "../../Modelisation/user";
+} from "../CallDatas/CallDatas";
+import User from "../Modelisation/user";
 
 
 function Dashboard() {
