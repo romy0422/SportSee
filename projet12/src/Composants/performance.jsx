@@ -11,7 +11,7 @@ import {
 
 // Class
 import UserPerformance from "../Modelisation/UserPerformance";
-import { StyledPerformance } from "./perfo.styled.js";
+import { StyledPerformance } from "./Styled_composants/perfo.styled.js";
 const Performance = ({ performanceData }) => {
  
   const PERFORMANCE_CLASS = new UserPerformance(performanceData);

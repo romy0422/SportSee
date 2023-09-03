@@ -13,7 +13,7 @@ import {
 
 // JS Class
 import UserAverageSession from "../Modelisation/UserAverage";
-
+import { StyledAverageSession } from "./Styled_composants/ave.styled";
 
 const AverageSession = ({ averageSessionsData }) => {
 
@@ -21,7 +21,7 @@ const AverageSession = ({ averageSessionsData }) => {
 
   return (
     <>
-  
+   <StyledAverageSession className="average-session">
         <h6 className="average-session--label">Durée moyenne des sessions</h6>
         
         <AreaChart
@@ -83,9 +83,10 @@ const AverageSession = ({ averageSessionsData }) => {
             fill="rgba(255, 255, 255, .1)"
           />
         </AreaChart>
-      
+        </StyledAverageSession>
 
     </>
+    
   );
 };
 

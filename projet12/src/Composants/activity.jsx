@@ -15,7 +15,7 @@ import {
 
 // Class
 import UserActivity from "../Modelisation/UserActivity";
-
+import { StyledActivity } from "./Styled_composants/act.styled";
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
@@ -35,7 +35,7 @@ const Activity = ({ userActivityData }) => {
 
   return (
     <>
-   
+    <StyledActivity className="activity">
         <h6 className="activity__title">Activité quotidienne</h6>
        
           <BarChart
@@ -99,7 +99,7 @@ const Activity = ({ userActivityData }) => {
               radius={[10, 10, 0, 0]}
             />
           </BarChart>
-        
+          </StyledActivity>
     </>
   );
 };

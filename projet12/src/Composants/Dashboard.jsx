@@ -18,7 +18,8 @@ import Activity from "./activity";
 
 // JS Class
 import User from "../Modelisation/user";
-
+import { StyledDashboard } from "./Styled_composants/dash.styled";
+import HeaderDashboard from "./HeaderDashboard";
 function Dashboard() {
   let { id } = useParams();
   let { userswitch } = useParams();
@@ -61,7 +62,9 @@ function Dashboard() {
     : "";
 
   return ( 
+    <StyledDashboard className="dashboard">
         <>
+        <HeaderDashboard first={USER_CLASS.firstName} />
           <div>{USER_CLASS.firstName} {USER_CLASS.lastName} {USER_CLASS.age}</div>
           <div className="dashboard__charts">
             <div className="dashboard__charts-left">
@@ -103,6 +106,7 @@ function Dashboard() {
             </div>
           </div>
         </>
+        </StyledDashboard>
       )}
 
 export default Dashboard;

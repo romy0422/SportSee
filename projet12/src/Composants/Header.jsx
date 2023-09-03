@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-
+import { StyledHeader } from "./Styled_composants/head.styled";
+import logo from "../logo/logo.svg";
 const Header = () => {
   return (
-    
+    <StyledHeader className="header">
       <nav className="header__nav">
         <Link to="/" className="header__link-img-wrapper">
+        <img src={logo} alt="" className="header__img" />
           <img alt="" className="header__img" />
         </Link>
         <ul className="header__links">
@@ -24,7 +25,7 @@ const Header = () => {
           </Link>
         </ul>
       </nav>
-   
+      </StyledHeader>
   );
 };
 
