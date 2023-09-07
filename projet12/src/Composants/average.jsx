@@ -8,6 +8,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  ResponsiveContainer
 } from "recharts";
 
 
@@ -15,15 +16,16 @@ import {
 import UserAverageSession from "../Modelisation/UserAverage";
 import { StyledAverageSession } from "./Styled_composants/ave.styled";
 
-const AverageSession = ({ averageSessionsData }) => {
+ const AverageSession = ({ averageSessionsData }) => {
 
   const AVERAGE_SESSIONS_CLASS = new UserAverageSession(averageSessionsData);
 
   return (
     <>
    <StyledAverageSession className="average-session">
+   
         <h6 className="average-session--label">Durée moyenne des sessions</h6>
-        
+        <ResponsiveContainer width="100%" aspect={3}>
         <AreaChart
           width={233}
           height={233}
@@ -83,6 +85,7 @@ const AverageSession = ({ averageSessionsData }) => {
             fill="rgba(255, 255, 255, .1)"
           />
         </AreaChart>
+        </ResponsiveContainer>
         </StyledAverageSession>
 
     </>

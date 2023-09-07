@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 
 // Recharts
 import { ResponsiveContainer, PieChart, Pie, Cell, Legend } from "recharts";
+
+// CSS
 import { StyledScore } from "./Styled_composants/score.styled";
 
 const RenderLegend = (props) => {
   const { payload } = props;
   // console.log(payload);
   return (
-    
     <ul>
       {payload.map((payload, index) => {
         if (payload.value === "score") {
@@ -18,7 +19,7 @@ const RenderLegend = (props) => {
               Score
             </li>
           );
-        }else
+        }
         return null;
       })}
     </ul>
@@ -31,8 +32,7 @@ const Score = ({ scoreData }) => {
 
   return (
     <StyledScore className="score">
-    <div className="score">
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" aspect={3}>
         <PieChart>
           <Pie
             data={scoreData}
@@ -66,7 +66,6 @@ const Score = ({ scoreData }) => {
         <p className="score__number">{scoreData && scoreData[0].value}%</p>
         <p className="score__text">de votre objectif</p>
       </div>
-    </div>
     </StyledScore>
   );
 };

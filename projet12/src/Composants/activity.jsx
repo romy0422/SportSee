@@ -10,24 +10,24 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from "recharts";
 
 
 // Class
 import UserActivity from "../Modelisation/UserActivity";
 import { StyledActivity } from "./Styled_composants/act.styled";
-const CustomTooltip = ({ active, payload }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="tooltip">
-        <p className="tooltip__calories">{payload[0].value + "kg"}</p>
-        <p className="tootip__kilogram">{payload[1].value + "kcal"}</p>
-      </div>
-    );
+ const CustomTooltip = ({active, payload}) => {
+  if (active){
+  return (
+    <div className="tooltip">
+    <p className="tooltip__calories">{payload && payload[0].value + "kg"}</p>
+    <p className="tootip__kilogram">{payload && payload[1].value + "kcal"}</p>
+  </div>
+   );
   }
-
-  return null;
-};
+  return null
+}
 
 const Activity = ({ userActivityData }) => {
 
@@ -36,12 +36,13 @@ const Activity = ({ userActivityData }) => {
   return (
     <>
     <StyledActivity className="activity">
+      
         <h6 className="activity__title">Activité quotidienne</h6>
-       
-          <BarChart
+        <ResponsiveContainer width="100%" aspect={3}>
+          <BarChart 
             width={500}
             height={300}
-            data={ACTIVITY_CLASS.initActivity}
+            data={ACTIVITY_CLASS._activities}
             barSize={7}
             barGap={8}
             margin={{
@@ -99,6 +100,7 @@ const Activity = ({ userActivityData }) => {
               radius={[10, 10, 0, 0]}
             />
           </BarChart>
+          </ResponsiveContainer>
           </StyledActivity>
     </>
   );

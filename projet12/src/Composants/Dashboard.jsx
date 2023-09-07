@@ -11,7 +11,7 @@ import {
 
 // REACT Components
 import Kpi from "./kpi";
-import Score from "./score";
+import ScoreChart from "./score";
 import Performance from "./performance";
 import AverageSession from "./average";
 import Activity from "./activity";
@@ -71,7 +71,7 @@ function Dashboard() {
               <Activity userActivityData={getUserActivityById} />
               <AverageSession averageSessionsData={getUserAverageSessionById} />
               <Performance performanceData={getUserPerformanceById} />
-              <Score scoreData={USER_CLASS.arrayOfPercentScore} />
+              <ScoreChart scoreData={USER_CLASS.arrayOfPercentScore} />
             </div>
             <div className="dashboard__charts-right">
               <Kpi
