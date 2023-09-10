@@ -14,7 +14,8 @@ export const StyledAverageSession = styled.section`
       left: 1rem;
       color: white};
       opacity: 0.7;
-      width: 66%;
+      width: 258px;
+      height: 263px;
       font-size: 12px;
     }
 

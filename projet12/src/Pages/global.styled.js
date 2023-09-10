@@ -50,11 +50,6 @@ select {
 html {
   box-sizing: border-box;
 }
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
 img,
 video {
   height: auto;
@@ -89,7 +84,7 @@ body {
 body,
 html {
   margin: auto;
-  max-width: 1440px;
+  width: 100%;
   min-width: 1024px;
   min-height: 780px;
   height: 100vh;

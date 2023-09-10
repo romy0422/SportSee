@@ -5,14 +5,16 @@ export const StyledDashboard = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 85%;
+    align-content:flex-start;
+    width:calc(1440px - 300px);
     height: 100%;
-    margin: auto;
+    margin: auto 117px;
 
     .dashboard__charts {
       display: flex;
       justify-content: space-between;
       height: 65%;
+      
     }
 
     .dashboard__charts-left {
@@ -30,6 +32,8 @@ export const StyledDashboard = styled.div`
       row-gap: 7%;
       width: 23%;
       height: 100%;
+      margin: auto 0 0 0;
+      align-content:flex-end;
     }
   }
 `;

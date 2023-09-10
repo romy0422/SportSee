@@ -25,7 +25,7 @@ import { StyledAverageSession } from "./Styled_composants/ave.styled";
    <StyledAverageSession className="average-session">
    
         <h6 className="average-session--label">Durée moyenne des sessions</h6>
-        <ResponsiveContainer width="100%" aspect={3}>
+        <ResponsiveContainer width="100%" aspect={1}>
         <AreaChart
           width={233}
           height={233}
