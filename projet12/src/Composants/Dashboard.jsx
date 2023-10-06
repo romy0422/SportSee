@@ -20,6 +20,11 @@ import Activity from "./activity";
 import User from "../Modelisation/user";
 import { StyledDashboard } from "./Styled_composants/dash.styled";
 import HeaderDashboard from "./HeaderDashboard";
+import energy from "../img/energy.svg";
+import chicken from "../img/chicken.svg";
+import cheeseburger from "../img/cheeseburger.svg";
+import apple from "../img/apple.svg";
+
 function Dashboard() {
   let { id } = useParams();
   let { userswitch } = useParams();
@@ -65,7 +70,6 @@ function Dashboard() {
     <StyledDashboard className="dashboard">
         <>
         <HeaderDashboard first={USER_CLASS.firstName} />
-          <div>{USER_CLASS.firstName} {USER_CLASS.lastName} {USER_CLASS.age}</div>
           <div className="dashboard__charts">
             <div className="dashboard__charts-left">
               <Activity userActivityData={getUserActivityById} />
@@ -75,28 +79,28 @@ function Dashboard() {
             </div>
             <div className="dashboard__charts-right">
               <Kpi
-               
+                image = {energy}
                 value={USER_CLASS.calorie}
                 title="Calories"
                 unity="kCal"
                 color="red"
               />
               <Kpi
-               
+                image={chicken}
                 value={USER_CLASS.protein}
                 title="Proteines"
                 unity="g"
                 color="blue"
               />
               <Kpi
-               
+                image={apple}
                 value={USER_CLASS.carbohydrate}
                 title="Glucides"
                 unity="g"
                 color="yellow"
               />
               <Kpi
-               
+                image={cheeseburger}
                 value={USER_CLASS.lipid}
                 title="Lipides"
                 unity="g"

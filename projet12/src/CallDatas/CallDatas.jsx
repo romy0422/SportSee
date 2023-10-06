@@ -5,11 +5,11 @@ async function getURL(id, userswitch, uri) {
   if (userswitch === "user") {
     try {
       const response = await axios.get(
-        `http://localhost:1234/${userswitch}/${id}/${uri}`
+        `http://localhost:3001/${userswitch}/${id}/${uri}`
       );
       return response.data.data;
     } catch (error) {
-      console.error(error);
+      throw new Error(`API Call Failed: ${error.message}`);
     }
   } else if (userswitch === "mock") {
     switch (uri) {

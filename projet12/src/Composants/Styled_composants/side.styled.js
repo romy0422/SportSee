@@ -6,11 +6,12 @@ export const StyledSidebar = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    position: fixed;
+    bottom:0px;
     top: 0;
     z-index: 1;
     width: 117px;
-    min-height: inherit;
+    min-height: 100vh;
     height: 100%;
     background: black;
 
@@ -21,7 +22,7 @@ export const StyledSidebar = styled.div`
 
     .sidebar__text {
         position: absolute;
-        bottom: 10%;
+        bottom:80px;
         width: 100%;
         color: white;
         font-size: 12px;

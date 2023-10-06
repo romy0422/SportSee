@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledHeader = styled.div`
 @import url('https://fonts.googleapis.com/css2? family= Roboto & display=swap');
    &.header{
-    position: relative;
+    position: fixed;
     z-index: 3;
     width: 100%;
     background: black;

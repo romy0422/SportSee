@@ -4,36 +4,35 @@ export const StyledDashboard = styled.div`
   &.dashboard {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-content:flex-start;
-    width:calc(1440px - 300px);
+    width:95%;
+    max-width:1500px;
+    padding:20px 0 0 140px;
     height: 100%;
-    margin: auto 117px;
+    margin: 117px auto;
 
     .dashboard__charts {
       display: flex;
-      justify-content: space-between;
-      height: 65%;
-      
+      justify-content: space-evenly; 
+      width:100%;   
+      align-content: flex-end;  
     }
 
     .dashboard__charts-left {
       display: flex;
       flex-wrap: wrap;
       align-content: space-between;
-      justify-content: space-between;
-      width: 74%;
-      height: 100%;
+      justify-content: space-evenly;
+      width: 70%;
+      height: 80%;
     }
 
     .dashboard__charts-right {
       display: flex;
       flex-direction: column;
-      row-gap: 7%;
       width: 23%;
-      height: 100%;
-      margin: auto 0 0 0;
-      align-content:flex-end;
+      margin: 0 0 0 0;
+      justify-content: space-evenly;
     }
   }
 `;

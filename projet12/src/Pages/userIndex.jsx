@@ -3,8 +3,9 @@ import Dashboard from "../Composants/Dashboard";
 
 function Userindex() {
   return (
+   
+    <Dashboard />
  
-      <Dashboard />
   
   );
 }

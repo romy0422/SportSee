@@ -2,7 +2,7 @@
 class UserAverageSession {
 
   constructor(averageSessions) {
-    if (averageSessions && averageSessions.sessions) {
+    if (averageSessions && Array.isArray(averageSessions.sessions)) {
       this._averageSessions = averageSessions.sessions.map((session) => {
         return {
           name: this.initDay(session.day),
@@ -18,8 +18,7 @@ class UserAverageSession {
     return this._averageSessions;
   }
 
- 
-  initDay = (day) => {
+  initDay(day) {
     switch (day) {
       case 1:
         return "L";
@@ -36,9 +35,9 @@ class UserAverageSession {
       case 7:
         return "D";
       default:
-        break;
+        return "";
     }
-  };
+  }
 }
 
 export default UserAverageSession;

@@ -14,6 +14,8 @@ function RoutesPath() {
                     <Route element={<Navigate replace to="/accueil" />} path="/" />
                     <Route path="/accueil" element={<Accueil />}/>
                     <Route path="/:userswitch/:id" element={<Userindex />} />
+                    <Route path="/:userswitch/" element={<Accueil />} />
+
                 </Routes>
                
         </HashRouter>

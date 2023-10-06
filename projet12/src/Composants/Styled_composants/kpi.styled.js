@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledKpi = styled.div`
   &.kpi {
     display: flex;
-    width: 100%;
+    width: 80%;
     height: 25%;
     background: white;
     border-radius: 5px;

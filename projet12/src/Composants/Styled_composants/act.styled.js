@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const StyledActivity = styled.section`
   &.activity {
-    width: 100%;
-    height: 52%;
-    max-height: 320px;
-    padding: 24px 26px 20px 32px;
+    width: 85%;
+    height: fit-contents;
+    margin-bottom : -40px;
+    padding: 24px 0px 0px 0px;
     background: white;
     border-radius: 5px;
 
@@ -33,7 +33,7 @@ export const StyledActivity = styled.section`
       justify-content: space-around;
       height: 63px;
       width: 39px;
-      background:secondary;
+      background:red;
       color: white;
       font-size: 7px;
     }

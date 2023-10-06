@@ -1,7 +1,7 @@
 
   class UserActivity {
     constructor(data) {
-      if (data.sessions) {
+      if (data && data.sessions) {
         this._activities = data.sessions.map((session) => {
           return {
             name: this.initDate(session.day),

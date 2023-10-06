@@ -76,8 +76,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   font-weight: 500;
+  height: 100vh;
+
 }
 
 #root,
@@ -87,7 +88,6 @@ html {
   width: 100%;
   min-width: 1024px;
   min-height: 780px;
-  height: 100vh;
 }
 
 #root {

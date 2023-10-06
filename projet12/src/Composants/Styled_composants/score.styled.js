@@ -2,15 +2,16 @@ import styled from "styled-components";
 
 export const StyledScore = styled.section`
   &.score {
-    width: 31%;
-    height: 43%;
+    width: 200px;
+    height: 200px;
     position: relative;
-    background: grey;
+    background: #FBFBFB;
     border-radius: 5px;
 
     .score__legend {
       font-size: 15px;
-      color: primary;
+      color: #20253A;
+      ;
     }
 
     p {
@@ -23,7 +24,7 @@ export const StyledScore = styled.section`
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-      color: primary;
+      color: #282D30;
     }
     .score__number {
       font-weight: 700;
@@ -32,7 +33,7 @@ export const StyledScore = styled.section`
 
     .score__text {
       font-size: clamp(14px, 1.111vw, 16px);
-      color: darkgrey;
+      color: #282D30;
       line-height: 26px;
     }
   }

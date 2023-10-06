@@ -32,7 +32,7 @@ const Score = ({ scoreData }) => {
 
   return (
     <StyledScore className="score">
-      <ResponsiveContainer width="100%" aspect={3}>
+      <ResponsiveContainer width="100%" aspect={1}>
         <PieChart>
           <Pie
             data={scoreData}

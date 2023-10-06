@@ -8,7 +8,7 @@ export const StyledHeaderDashboard = styled.div`
     }
 
     .dashboardHeader__name {
-      color: secondary;
+      color: red;
     }
 
     .dashboardHeader__text {

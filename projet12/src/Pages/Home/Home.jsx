@@ -1,53 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { getUser } from "./../../CallDatas/CallDatas";
+import { StyledHome, StyledButton, StyledButtonWrapper } from "../userIndex.styled";
+import Error from './../../Composants/ErrorModal'; // adjust the path
 const Home = () => {
   const navigate = useNavigate();
-  const SetUserToken = (user, id) => {
+  const [error, setError] = useState(null);  
+  const handleCloseModal = () => {
+    setError(null);
+  };
+  const SetUserToken = async (user, id) => {
+    setError(null); 
     localStorage.removeItem("accessToken");
     localStorage.setItem("accessToken", id);
-    navigate(`/${user}/${id}`);
+    try {
+      await getUser(id, user); 
+      navigate(`/${user}/${id}`);
+    } catch (err) {
+      setError(err.message); 
+    }
   };
 
   return (
-        <div>
-          <button
-            onClick={() => {
-              SetUserToken("user", 12);
-            }}
-          >
-             API_user_12
-          </button>
-        <div>
-          <button
-            onClick={() => {
-              SetUserToken("user", 18);
-            }}
-          >
-             API_user_18
-          </button>
-        </div>
-        <div>
-          <button
-            onClick={() => {
-              SetUserToken("mock", 18);
-            }}
-          >
-             MOCK_user_Cécilia
-          </button>
-        </div>
-        <div>
-          <button
-            onClick={() => {
-              SetUserToken("mock", 12);
-            }}
-          >
-            MOCK_user_Karl
-          </button>
-        </div>
-
-      </div>
-
+    <StyledHome className="home">
+      {error && <Error error={error} onClose={handleCloseModal}/>}
+      <StyledButtonWrapper>
+        <StyledButton onClick={() => SetUserToken("user", 12)}>API user 12</StyledButton>
+        <StyledButton onClick={() => SetUserToken("user", 18)}>API user 18</StyledButton>
+        <StyledButton onClick={() => SetUserToken("mock", 18)}>MOCK user Cécilia</StyledButton>
+        <StyledButton onClick={() => SetUserToken("mock", 12)}>MOCK user Karl</StyledButton>
+      </StyledButtonWrapper>
+    </StyledHome>
   );
 };
+
 export default Home;
