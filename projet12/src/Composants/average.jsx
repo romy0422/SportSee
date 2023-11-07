@@ -103,5 +103,5 @@ const AverageSession = ({ averageSessionsData }) => {
 AverageSession.propTypes = {
   averageSessionsData: PropTypes.object.isRequired,
 };
-
+ 
 export default AverageSession;
