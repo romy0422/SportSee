@@ -12,8 +12,7 @@ class UserPerformance {
   }}
 
   get performance() {
-    return this._performance;
-  }
+    return this._performance.reverse();  }
 }
 
 export default UserPerformance;

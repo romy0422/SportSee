@@ -1,27 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-// Importation des fonctions pour les appels API
 import {
   getUser,
   getActivity,
   getAverageSessions,
   getPerformance,
 } from "../CallDatas/CallDatas";
-
-// Importation des composants React
 import Kpi from "./kpi";
 import ScoreChart from "./score";
 import Performance from "./performance";
 import AverageSession from "./average";
 import Activity from "./activity";
 
-// Importation de la classe JavaScript
 import User from "../Modelisation/user";
 
-// Importation des styles et des images
 import { StyledDashboard } from "./Styled_composants/dash.styled";
 import HeaderDashboard from "./HeaderDashboard";
+import ErrorModal from "../Composants/ErrorModal";
 import energy from "../img/energy.svg";
 import chicken from "../img/chicken.svg";
 import cheeseburger from "../img/cheeseburger.svg";
@@ -35,6 +31,7 @@ function Dashboard() {
   const [getUserAverageSessionById, setgetUserAverageSessionById] = useState({});
   const [getUserPerformanceById, setgetUserPerformanceById] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetch = async () => {
@@ -50,6 +47,7 @@ function Dashboard() {
         setgetUserAverageSessionById(AVERAGE_SESSIONS);
         setgetUserPerformanceById(PERFORMANCE);
       } catch (error) {
+        setError(error.message);
         console.error("Erreur lors du chargement des données :", error);
       }
       setIsLoading(false);
@@ -57,6 +55,10 @@ function Dashboard() {
 
     fetch();
   }, [id, userswitch]);
+
+  const handleCloseModal = () => {
+    setError(null);
+  };
 
   const USER_CLASS = !isLoading && getUserById?.userInfos
     ? new User(
@@ -75,6 +77,8 @@ function Dashboard() {
     <StyledDashboard className="dashboard">
       {isLoading ? (
         <p>Chargement des données...</p>
+      ) : error ? (
+        <ErrorModal error={error} onClose={handleCloseModal} />
       ) : (
         USER_CLASS && (
           <>
