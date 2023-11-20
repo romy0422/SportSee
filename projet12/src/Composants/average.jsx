@@ -23,7 +23,7 @@ const AverageSession = ({ averageSessionsData }) => {
 
   return (
     <StyledAverageSession className="average-session">
-      <h6 className="average-session--label">Durée moyenne des sessions</h6>
+<h6 className="average-session--label">Durée moyenne<br />des sessions</h6>
       <ResponsiveContainer width="100%" aspect={1}>
         <AreaChart
           width={200}
@@ -46,14 +46,14 @@ const AverageSession = ({ averageSessionsData }) => {
             </defs>
           </defs>
 
-          <YAxis hide={true} domain={[0, "dataMax + 50"]} />
+          <YAxis hide={true} domain={['auto', "dataMax + 50"]} />
 
           <XAxis
             dataKey="name"
             tickLine={false}
             tickSize={20}
             axisLine={false}
-            tick={{ fill: "rgba(255, 255, 255, .5)" }}
+            tick={{ fill: "rgba(255, 255, 255, 0.5)" }}
              dy={0}
           />
           <Tooltip

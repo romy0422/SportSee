@@ -21,9 +21,9 @@ const Performance = ({ performanceData }) => {
       
       {  }
       <RadarChart
-        outerRadius={65}
-        width={230}
-        height={230}
+        outerRadius={50}
+        width={200}
+        height={200}
         data={PERFORMANCE_CLASS.performance}
       >
         <PolarGrid radialLines={false} />

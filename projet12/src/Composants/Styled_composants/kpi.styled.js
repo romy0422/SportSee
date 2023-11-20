@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const StyledKpi = styled.div`
   &.kpi {
+    left:-20px;
     display: flex;
     width: 80%;
     height: 25%;
     background: white;
     border-radius: 5px;
-
+    padding-right:20px;
     .kpi__icon {
       width: 40%;
       display: flex;
