@@ -55,7 +55,9 @@ export const StyledButtonWrapper = styled.div`
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
-    height: 100vh; `
+    width:700px;
+    height: 100vh;
+    margin:auto; `
 
 export const StyledModal = styled.div`
       position: fixed;
