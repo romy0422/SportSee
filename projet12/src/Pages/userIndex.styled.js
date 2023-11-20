@@ -59,12 +59,12 @@ export const StyledButtonWrapper = styled.div`
 
 export const StyledModal = styled.div`
       position: fixed;
-      top:30%;
+      top:50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width:30%;
-      height: 30%;
-      background: rgba(0, 0, 0, 1); 
+      width:80%;
+      height: 80%;
+      background: rgba(0, 0, 0, 7); 
       display: flex;
       justify-content: center;
       align-items: center;
@@ -75,6 +75,7 @@ export const StyledModal = styled.div`
 export const ErrorMessage = styled.div`
       color: white;
       font-size: 40px;
+      margin:20px;
     `;
     
 export const CloseButton = styled.button`

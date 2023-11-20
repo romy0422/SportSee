@@ -1,23 +1,28 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getUser } from "./../../CallDatas/CallDatas";
+import { getUser } from "../../CallDatas/CallDatas";
 import { StyledHome, StyledButton, StyledButtonWrapper } from "../userIndex.styled";
-import Error from './../../Composants/ErrorModal'; // adjust the path
+import Error from '../../Composants/ErrorModal';
 const Home = () => {
   const navigate = useNavigate();
-  const [error, setError] = useState(null);  
+  const [error, setError] = useState(null);
+
   const handleCloseModal = () => {
     setError(null);
   };
+
   const SetUserToken = async (user, id) => {
-    setError(null); 
-    localStorage.removeItem("accessToken");
-    localStorage.setItem("accessToken", id);
     try {
-      await getUser(id, user); 
-      navigate(`/${user}/${id}`);
+      localStorage.setItem("accessToken", id);
+      const userData = await getUser(id, user);
+      if (userData) {
+        navigate(`/${user}/${id}`);
+      } else {
+        throw new Error("Aucune donnée utilisateur trouvée");
+      }
     } catch (err) {
-      setError(err.message); 
+      localStorage.removeItem("accessToken");
+      setError(err.message);
     }
   };
 

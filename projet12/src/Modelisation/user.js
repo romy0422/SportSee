@@ -31,7 +31,7 @@ class User {
     return this._age;
   }
   get score() {
-    return this._score;
+    return this._score ;
   }
 
   get arrayOfPercentScore() {

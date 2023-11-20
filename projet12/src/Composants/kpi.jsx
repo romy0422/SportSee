@@ -11,7 +11,7 @@ const Kpi = ({ image, value, title, color, unity }) => {
         </div>
       </div>
       <div className="kpi__text">
-        <p className="kpi__value">{value + unity}</p>
+      <p className="kpi__value">{value !== undefined ? value + unity : ''}</p>
         <p className="kpi__title">{title}</p>
       </div>
     </StyledKpi>

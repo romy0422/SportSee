@@ -1,42 +1,45 @@
 import axios from "axios";
 import * as MOCKED_DATA from "../DataMocked/datas";
-
 async function getURL(id, userswitch, uri) {
-  if (userswitch === "user") {
-    try {
+  try {
+    if (userswitch === "user") {
       const response = await axios.get(
         `http://localhost:3001/${userswitch}/${id}/${uri}`
       );
       return response.data.data;
-    } catch (error) {
-      throw new Error(`API Call Failed: ${error.message}`);
-    }
-  } else if (userswitch === "mock") {
-    switch (uri) {
-      case "":
-        const MOCKED_USER = MOCKED_DATA.USER_MAIN_DATA.find(
-          (user) => user.id === parseInt(id)
-        );
-        return MOCKED_USER;
-      case "activity":
-        const MOCKED_USER_ACTIVITY = MOCKED_DATA.USER_ACTIVITY.find(
-          (user) => user.userId === parseInt(id)
-        );
-        return MOCKED_USER_ACTIVITY;
-      case "average-sessions":
-        const MOCKED_USER_AVERAGE_SESSIONS =
-          MOCKED_DATA.USER_AVERAGE_SESSIONS.find(
+    } else if (userswitch === "mock") {
+      let mockedData;
+      switch (uri) {
+        case "":
+          mockedData = MOCKED_DATA.USER_MAIN_DATA.find(
+            (user) => user.id === parseInt(id)
+          );
+          break;
+        case "activity":
+          mockedData = MOCKED_DATA.USER_ACTIVITY.find(
             (user) => user.userId === parseInt(id)
-          ); console.log(MOCKED_USER_AVERAGE_SESSIONS)
-        return MOCKED_USER_AVERAGE_SESSIONS;
-      case "performance":
-        const MOCKED_USER_PERFORMANCE = MOCKED_DATA.USER_PERFORMANCE.find(
-          (user) => user.userId === parseInt(id)
-        );
-        return MOCKED_USER_PERFORMANCE;
-      default:
-        break;
+          );
+          break;
+        case "average-sessions":
+          mockedData = MOCKED_DATA.USER_AVERAGE_SESSIONS.find(
+            (user) => user.userId === parseInt(id)
+          );
+          break;
+        case "performance":
+          mockedData = MOCKED_DATA.USER_PERFORMANCE.find(
+            (user) => user.userId === parseInt(id)
+          );
+          break;
+        default:
+          throw new Error('URI non reconnue.');
+      }
+      if (!mockedData) {
+        throw new Error('Données mockées non trouvées.');
+      }
+      return mockedData;
     }
+  } catch (error) {
+    return Promise.reject(new Error(`Une erreur est survenue : ${error.message}`));
   }
 }
 

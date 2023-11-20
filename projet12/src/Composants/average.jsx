@@ -7,7 +7,7 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-  LinearGradient,
+  
 } from "recharts";
 
 import UserAverageSession from "../Modelisation/UserAverage";
@@ -26,16 +26,17 @@ const AverageSession = ({ averageSessionsData }) => {
       <h6 className="average-session--label">Durée moyenne des sessions</h6>
       <ResponsiveContainer width="100%" aspect={1}>
         <AreaChart
-          width={233}
-          height={233}
+          width={200}
+          height={200}
           data={AVERAGE_SESSIONS_CLASS._averageSessions}
           margin={{
             top: 1,
             right: 7,
-            bottom: 9,
+            bottom:30,
             left: 7,
           }}
         >
+         <rect x="0" y="0" width="100%" height="100%" fill="url(#colorGradient)" />
           <defs>
             <defs>
               <linearGradient id="colorGradient" x1="0" y1="0" x2="1" y2="0">
@@ -43,10 +44,9 @@ const AverageSession = ({ averageSessionsData }) => {
                 <stop offset="100%" stopColor="rgba(0,0,0,0.3)" />
               </linearGradient>
             </defs>
-
           </defs>
 
-          <rect x="0" y="0" width="100%" height="100%" fill="url(#colorGradient)" />
+          <YAxis hide={true} domain={[0, "dataMax + 50"]} />
 
           <XAxis
             dataKey="name"
@@ -54,8 +54,8 @@ const AverageSession = ({ averageSessionsData }) => {
             tickSize={20}
             axisLine={false}
             tick={{ fill: "rgba(255, 255, 255, .5)" }}
+             dy={0}
           />
-          <YAxis hide={true} domain={[0, "dataMax + 51"]} />
           <Tooltip
             filterNull={false}
             separator=""
